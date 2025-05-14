@@ -1,12 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
+  const[test, setTest] = useState('');
 
-  function analyse(){
-    
-  }
+  useEffect(()=> {
+    fetch('http://localhost:8080/api/hello')
+    .then(res => res.json())
+    .then(data => setMessage(data.message))
+    .catch(err => console.error('API error:', err))
+  }, []);
 
+  console.log(test)
   return (
     <>
       <h2>ifxplain</h2>
@@ -20,7 +25,9 @@ function App() {
         </div>
         <div className='contentContainer'>
           <h3 className='codeBlockAnnotation'>Analysis</h3>
-          <div className='analysisContainer codeBlock'></div>
+          <div className='analysisContainer codeBlock'>
+            <p>{test}</p>
+          </div>
         </div>
         <div className='contentContainer'>
           <h3 className='codeBlockAnnotation'>Playground</h3>

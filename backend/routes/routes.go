@@ -1,9 +1,8 @@
 package routes
 
 import (
-    "net/http"
     "github.com/gorilla/mux"
-    "github.com/yourname/Noego.Accedie/backend/handlers"
+    "github.com/Noego.Accedie/ifxplain/backend/handlers"
 )
 
 func SetupRoutes() *mux.Router {
